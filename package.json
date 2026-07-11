@@ -1,0 +1,8 @@
+{
+  "name": "accounting-ability-assessment",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
