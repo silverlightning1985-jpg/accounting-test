@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="用三道会计情境题快速评估应征者的会计判断力与适合岗位层次。" />
+    <title>会计能力测评 · FOMO Talent Lab</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="回到页面顶部">
+          <span class="brand-mark">F</span>
+          <span>
+            <span class="brand-name">FOMO TALENT LAB</span>
+            <span class="brand-subtitle">招聘判断工具</span>
+          </span>
+        </a>
+        <div class="header-note">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>现场测评 · 约 3–5 分钟</span>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="intro-grid" aria-labelledby="page-title">
+          <div class="intro-copy">
+            <p class="eyebrow">ACCOUNTING JUDGEMENT · 03 QUESTIONS</p>
+            <h1 id="page-title">看懂数字，<em>做出判断。</em></h1>
+            <p class="intro-lead">用三道贴近工作的情境题，快速了解应征者的会计基础、月结意识与经营分析能力。</p>
+          </div>
+          <div class="intro-stat" aria-label="测评信息">
+            <span class="stat-number">03</span>
+            <span class="stat-label">道情境题</span>
+            <span class="stat-rule"></span>
+            <span class="stat-label">满分 12 分</span>
+          </div>
+        </section>
+
+        <form id="assessment-form" novalidate>
+          <section class="content-card candidate-card" aria-labelledby="candidate-title">
+            <div class="section-heading">
+              <div>
+                <span class="section-index">01</span>
+                <h2 id="candidate-title">先记下应征者资料</h2>
+              </div>
+              <span class="required-note">* 必填</span>
+            </div>
+            <div class="candidate-fields">
+              <label class="field-group">
+                <span>应征者姓名 <span class="required-star">*</span></span>
+                <input id="candidate-name" name="candidate-name" type="text" autocomplete="name" placeholder="例如：陈小明" />
+              </label>
+              <label class="field-group">
+                <span>应征岗位 <span class="required-star">*</span></span>
+                <input id="candidate-role" name="candidate-role" type="text" autocomplete="organization-title" placeholder="例如：Account Executive" />
+              </label>
+              <label class="field-group field-group-date">
+                <span>测评日期</span>
+                <input id="assessment-date" name="assessment-date" type="text" readonly aria-readonly="true" />
+              </label>
+            </div>
+          </section>
+
+          <section class="content-card questions-card" aria-labelledby="questions-title">
+            <div class="section-heading question-heading">
+              <div>
+                <span class="section-index">02</span>
+                <h2 id="questions-title">三道题，看会计判断力</h2>
+              </div>
+              <div class="progress-copy"><span id="answered-count">0</span> / 3 已完成</div>
+            </div>
+            <div class="progress-track" aria-hidden="true"><span id="progress-bar"></span></div>
+            <div id="question-list" class="question-list"></div>
+
+            <div class="submit-area">
+              <div class="form-feedback" id="form-feedback" role="alert" aria-live="polite"></div>
+              <button class="primary-button" id="submit-button" type="submit">
+                <span>提交并查看结果</span>
+                <span class="button-arrow" aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </section>
+        </form>
+
+        <section class="result-section" id="result-panel" aria-labelledby="result-title" hidden>
+          <div class="result-topline">
+            <div>
+              <span class="section-index">03</span>
+              <span class="eyebrow">ASSESSMENT RESULT</span>
+            </div>
+            <span class="result-complete">已完成测评 <span aria-hidden="true">✓</span></span>
+          </div>
+
+          <div class="result-hero">
+            <div class="score-card">
+              <span class="score-label">综合得分</span>
+              <div class="score-line"><strong id="result-score">0</strong><span>/ 12</span></div>
+              <div class="score-bar" aria-hidden="true"><span id="result-score-bar"></span></div>
+              <span class="score-caption">会计判断力快照</span>
+            </div>
+            <div class="level-card">
+              <span class="score-label">建议岗位层次</span>
+              <span class="level-badge" id="result-level">—</span>
+              <h2 id="result-title">—</h2>
+              <p id="result-summary"></p>
+            </div>
+          </div>
+
+          <div class="result-grid">
+            <div class="follow-up-card">
+              <span class="card-kicker">INTERVIEW FOLLOW-UP</span>
+              <h3>建议面试官继续追问</h3>
+              <p id="result-follow-up"></p>
+            </div>
+            <div class="breakdown-card">
+              <div class="breakdown-heading">
+                <span class="card-kicker">QUESTION BREAKDOWN</span>
+                <span>逐题判断</span>
+              </div>
+              <div id="result-breakdown" class="breakdown-list"></div>
+            </div>
+          </div>
+
+          <div class="result-footer">
+            <p><span class="footer-mark">i</span> 本测评用于面试筛选辅助，不替代学历、经验、沟通能力与完整面试判断。</p>
+            <button class="secondary-button" id="reset-button" type="button">重新测评 <span aria-hidden="true">↺</span></button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span>FOMO TALENT LAB</span>
+        <span>Built for better hiring conversations.</span>
+      </footer>
+    </div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
